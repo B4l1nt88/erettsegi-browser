@@ -4,7 +4,7 @@ Ez a projekt egy forkja az eredeti **[Erettsegi Browser](https://github.com/skid
 
 ## Változtatás:
 Megjelenik a tantárgy aktuális időszakához tartozó idegen nyelvű feladatsorainak magyar változatai is.
-
+---
 - **Framework**: [Next.js](https://nextjs.org)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com)
