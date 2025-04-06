@@ -1,14 +1,5 @@
 export const fetchData = async (
-  selectedSubject: string,
-  selectedYear: string,
-  selectedPeriod: string,
-  selectedLevel: string,
-  setflZipLink: (link: string) => void,
-  setutZipLink: (link: string) => void,
-  setflPdfLink: (link: string) => void,
-  setutPdfLink: (link: string) => void,
-  setflMp3Link: (link: string) => void
-) => {
+selectedSubject: string, selectedYear: string, selectedPeriod: string, selectedLevel: string, setflZipLink: (link: string) => void, setutZipLink: (link: string) => void, setflPdfLink: (link: string) => void, setutPdfLink: (link: string) => void, setflMp3Link: (link: string) => void, setidFlPdfLink: (link: string) => void, setidUtPdfLink: (link: string) => void) => {
   try {
     const url = `/api/erettsegi?vizsgatargy=${selectedSubject}&ev=${selectedYear}&idoszak=${selectedPeriod}&szint=${selectedLevel}`
 
@@ -21,6 +12,8 @@ export const fetchData = async (
         flPdfUrl: string
         utPdfUrl: string
         flMp3Url: string
+        idFlPdfUrl: string
+        idUtPdfUrl: string
       }
 
       if (data.utZipUrl && data.flZipUrl) {
@@ -35,6 +28,12 @@ export const fetchData = async (
 
       if (data.flMp3Url) {
         setflMp3Link(data.flMp3Url)
+      }
+      if (data.idFlPdfUrl) {
+        setidFlPdfLink(data.idFlPdfUrl)
+      }
+      if (data.idUtPdfUrl) {
+        setidUtPdfLink(data.idUtPdfUrl)
       }
     } else {
       console.error('Hiba történt az API hívás során.')

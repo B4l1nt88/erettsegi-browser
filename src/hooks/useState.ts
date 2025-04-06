@@ -7,6 +7,8 @@ export const useAppState = () => {
   const [flZipLink, setflZipLink] = useState<string>('')
   const [utZipLink, setutZipLink] = useState<string>('')
   const [flMp3Link, setflMp3Link] = useState<string>('')
+  const [idFlPdfLink, setidFlPdfLink] = useState<string>('')
+  const [idUtPdfLink, setidUtPdfLink] = useState<string>('') 
   const [selectedSubject, setSelectedSubject] = useState<string>('')
   const [selectedYear, setSelectedYear] = useState<string>('')
   const [selectedPeriod, setSelectedPeriod] = useState<string>('')
@@ -26,6 +28,10 @@ export const useAppState = () => {
     setutZipLink,
     flMp3Link,
     setflMp3Link,
+    idFlPdfLink,
+    setidFlPdfLink,
+    idUtPdfLink, 
+    setidUtPdfLink, 
     selectedSubject,
     setSelectedSubject,
     selectedYear,

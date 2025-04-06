@@ -25,6 +25,10 @@ export default function Home() {
     setutZipLink,
     flMp3Link,
     setflMp3Link,
+    idFlPdfLink,
+    setidFlPdfLink,
+    idUtPdfLink, 
+    setidUtPdfLink, 
     selectedSubject,
     setSelectedSubject,
     selectedYear,
@@ -51,7 +55,9 @@ export default function Home() {
         setflPdfLink,
         setutPdfLink,
         setflMp3Link,
-      )
+        setidFlPdfLink, // Ensure this is included
+        setidUtPdfLink  // Add this
+      );
     }
   }, [selectedLevel, selectedPeriod, selectedSubject, selectedYear])
 
@@ -96,6 +102,14 @@ export default function Home() {
                 <PdfButton label='Útmutató' link={utPdfLink} />
               </ButtonGroup>
             </div>
+            
+            <div className='space-x-3'>
+                <ButtonGroup>
+                <PdfButton label='F. idegen' link={idFlPdfLink} />
+                  <Divider orientation='vertical' />
+                  <PdfButton label='Ú. idegen' link={idUtPdfLink} />
+                </ButtonGroup>
+              </div>
             {['inf', 'infoism', 'digkult'].includes(selectedSubject) && (
               <div className='space-x-3'>
                 <ButtonGroup>

@@ -70,7 +70,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const megoldas = 'meg'
     const shortev = ev.slice(-2)
 
-    let flPdfUrl, utPdfUrl, flZipUrl, utZipUrl, flMp3Url
+    let flPdfUrl, utPdfUrl, flZipUrl, utZipUrl, flMp3Url, idFlPdfUrl, idUtPdfUrl
     switch (vizsgatargy) {
       case 'inf':
       case 'infoism':
@@ -89,11 +89,13 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       default:
         flPdfUrl = `${proxiedUrl}${prefix}_${shortev}${honap}_${feladat}.pdf`
         utPdfUrl = `${proxiedUrl}${prefix}_${shortev}${honap}_${utmutato}.pdf`
+        idFlPdfUrl = `${proxiedUrl}${prefix}ma_${shortev}${honap}_${feladat}.pdf`
+        idUtPdfUrl = `${proxiedUrl}${prefix}ma_${shortev}${honap}_${utmutato}.pdf`
         break
     }
 
     res.setHeader('Cache-Control', 's-maxage=31536000')
-    res.status(200).json({ flPdfUrl, utPdfUrl, flZipUrl, utZipUrl, flMp3Url })
+    res.status(200).json({ flPdfUrl, utPdfUrl, flZipUrl, utZipUrl, flMp3Url, idFlPdfUrl, idUtPdfUrl })
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error', message: error })
   }
