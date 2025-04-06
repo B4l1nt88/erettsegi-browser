@@ -1,5 +1,5 @@
 import { Footer } from '@/components/Footer'
-import { Button } from '@nextui-org/button'
+import { Button } from "@heroui/button"
 import type { GetServerSideProps, GetServerSidePropsContext } from 'next'
 
 interface ErrorProps {

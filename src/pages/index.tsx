@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ButtonGroup, Divider } from '@nextui-org/react'
+import { ButtonGroup, Divider } from '@heroui/react'
 import { PdfButton, ZipButton, Mp3Button } from '@/components/Buttons'
 import { Footer } from '@/components/Footer'
 import { fetchData } from '@/utils/fetch'
@@ -63,8 +63,8 @@ export default function Home() {
 
   return (
     <main className='dark:bg-[#121212] text-foreground bg-background py-5'>
-      <h1 className='text-4xl font-bold text-blue-400 text-center mt-16'>
-        Bővített érettségi kereső
+      <h1 className='text-4xl font-bold text-[#34ed00] text-center mt-16'>
+        Érettségi kereső
       </h1>
       <div className='flex min-h-screen flex-col items-center justify-between'>
         <div className='container mx-auto'>

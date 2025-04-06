@@ -1,4 +1,4 @@
-import { Select, SelectItem } from '@nextui-org/react'
+import { Select, SelectItem } from '@heroui/react'
 import type { SelectorProps } from '@/utils/props'
 
 export const SubjectSelector: React.FC<
@@ -13,7 +13,7 @@ export const SubjectSelector: React.FC<
     className='w-56'
   >
     {subjects.map((subject) => (
-      <SelectItem key={subject.value} value={subject.value}>
+      <SelectItem key={subject.value} data-value={subject.value}>
         {subject.label}
       </SelectItem>
     ))}
@@ -32,7 +32,7 @@ export const YearSelector: React.FC<
     className='w-56'
   >
     {years.map((year) => (
-      <SelectItem key={year} value={year}>
+      <SelectItem key={year} data-value={year}>
         {year}
       </SelectItem>
     ))}
@@ -50,10 +50,10 @@ export const PeriodSelector: React.FC<
     onChange={(e) => setSelectedPeriod(e.target.value)}
     className='w-56'
   >
-    <SelectItem key={'tavasz'} value={'tavasz'}>
+    <SelectItem key={'tavasz'} data-value={'tavasz'}>
       Tavasz
     </SelectItem>
-    <SelectItem key={'osz'} value={'osz'}>
+    <SelectItem key={'osz'} data-value={'osz'}>
       Ősz
     </SelectItem>
   </Select>
@@ -70,10 +70,10 @@ export const LevelSelector: React.FC<
     onChange={(e) => setSelectedLevel(e.target.value)}
     className='w-56'
   >
-    <SelectItem key={'kozep'} value={'kozep'}>
+    <SelectItem key={'kozep'} data-value={'kozep'}>
       Közép
     </SelectItem>
-    <SelectItem key={'emelt'} value={'emelt'}>
+    <SelectItem key={'emelt'} data-value={'emelt'}>
       Emelt
     </SelectItem>
   </Select>

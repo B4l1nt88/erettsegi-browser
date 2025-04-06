@@ -1,5 +1,5 @@
 import { VscGithub } from "react-icons/vsc";
-import { Button } from '@nextui-org/button'
+import { Button } from "@heroui/button"
 
 export const OriginalSource = () => {
   return (

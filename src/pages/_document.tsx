@@ -5,6 +5,7 @@ export default function Document() {
     <Html lang='hu'>
       <Head>
         <meta name='theme-color' content='#121212' />
+        <meta name='msapplication-TileColor' content='#121212' />
         <meta name='title' content='Érettségi kereső' />
         <meta name='og:title' content='Érettségi kereső' />
         <meta property='og:url' content='https://erettsegi.sbalint.hu' />

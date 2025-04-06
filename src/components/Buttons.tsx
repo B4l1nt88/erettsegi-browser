@@ -1,4 +1,4 @@
-import { Button } from '@nextui-org/react'
+import { Button } from '@heroui/react'
 import React, { useState, useEffect, useCallback } from 'react'
 import type { ButtonProps } from '@/utils/props'
 import type { ButtonColor } from '@/utils/types'
@@ -53,7 +53,7 @@ const CustomButton: React.FC<ButtonProps> = React.memo(({ label, link }) => {
       isLoading={isLoading}
       className='w-28 mt-3 text-sm font-bold py-2 px-2'
       color={getColor()}
-      onClick={handleClick}
+      onPress={handleClick}
     >
       {label}
     </Button>

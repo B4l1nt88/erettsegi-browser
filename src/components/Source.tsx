@@ -1,12 +1,12 @@
 import { VscGithubInverted } from 'react-icons/vsc'
-import { Button } from '@nextui-org/button'
+import { Button } from "@heroui/button"
 
 export const Source = () => {
   return (
     <Button
       aria-label='Forráskód'
       size='sm'
-      onClick={() =>
+      onPress={() =>
         window.open('https://github.com/B4l1nt88/upgraded-erettsegi-browser')
       }
     >

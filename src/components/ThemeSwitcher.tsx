@@ -1,5 +1,5 @@
 import { VscColorMode } from 'react-icons/vsc'
-import { Button } from '@nextui-org/button'
+import { Button } from "@heroui/button"
 import { useTheme } from 'next-themes'
 
 export const ThemeSwitcher = () => {
@@ -10,7 +10,7 @@ export const ThemeSwitcher = () => {
   }
 
   return (
-    <Button aria-label='Switch Theme' size='sm' onClick={() => toggle()}>
+    <Button aria-label='Switch Theme' size='sm' onPress={() => toggle()}>
       {theme === 'light' ? (
         <VscColorMode style={{ fill: 'black' }} size={20} />
       ) : (
