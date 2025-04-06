@@ -1,8 +1,7 @@
 {
-  "name": "erettsegi-browser",
-  "version": "6.9",
+  "name": "upgraded-erettsegi-browser",
+  "version": "1.0.1",
   "private": true,
-  "author": "albert|skidoodle@gh",
   "license": "AGPL-3.0",
   "scripts": {
     "dev": "next dev",
