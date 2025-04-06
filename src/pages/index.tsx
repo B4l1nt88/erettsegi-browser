@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <main className='dark:bg-[#121212] text-foreground bg-background py-5'>
       <h1 className='text-4xl font-bold text-blue-400 text-center mt-16'>
-        Érettségi kereső
+        Bővített érettségi kereső
       </h1>
       <div className='flex min-h-screen flex-col items-center justify-between'>
         <div className='container mx-auto'>

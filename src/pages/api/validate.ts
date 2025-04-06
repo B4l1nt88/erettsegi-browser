@@ -18,7 +18,7 @@ export default async function handler(
   const domain = link.split('/')[2]
   if (
     domain !== 'localhost:3000' &&
-    domain !== 'erettsegi.albert.lol' &&
+    domain !== 'erettsegi.sbalint.hu' &&
     domain !== 'dload-oktatas.educatio.hu'
   ) {
     return res.status(400).json({ error: 'Érvénytelen link' })
