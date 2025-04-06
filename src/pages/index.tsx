@@ -4,6 +4,7 @@ import { PdfButton, ZipButton, Mp3Button } from '@/components/Buttons'
 import { Footer } from '@/components/Footer'
 import { fetchData } from '@/utils/fetch'
 import useYears from '@/hooks/useYears'
+import { Analytics } from '@vercel/analytics/next'
 import { useAppState } from '@/hooks/useState'
 import {
   SubjectSelector,
@@ -128,6 +129,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      <Analytics />
     </main>
   )
 }
