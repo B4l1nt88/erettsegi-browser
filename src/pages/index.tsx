@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ButtonGroup, Divider } from '@heroui/react'
+import { Checkbox, ButtonGroup, Divider } from '@heroui/react'
 import { PdfButton, ZipButton, Mp3Button } from '@/components/Buttons'
 import { Footer } from '@/components/Footer'
 import { fetchData } from '@/utils/fetch'
@@ -95,6 +95,12 @@ export default function Home() {
                 selectedLevel={selectedLevel}
                 setSelectedLevel={setSelectedLevel}
               />
+            </div>
+            <div className='flex gap-4 '>
+            <Checkbox defaultSelected size="sm">
+            Idegen nyelvű sor (ma verzió)
+      </Checkbox>
+              
             </div>
             <div className='space-x-3'>
               <ButtonGroup>
