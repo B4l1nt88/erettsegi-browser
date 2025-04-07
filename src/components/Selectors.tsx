@@ -1,4 +1,4 @@
-import { Select, SelectItem } from '@heroui/react'
+import { Select, SelectItem, Checkbox } from '@heroui/react'
 import type { SelectorProps } from '@/utils/props'
 
 export const SubjectSelector: React.FC<
@@ -77,4 +77,18 @@ export const LevelSelector: React.FC<
       Emelt
     </SelectItem>
   </Select>
+)
+
+export const MaSelector: React.FC<
+  Pick<SelectorProps, 'selectedMa' | 'setSelectedMa'>
+> = ({ selectedMa, setSelectedMa }) => (
+  
+  <Checkbox
+    defaultSelected={selectedMa}
+    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSelectedMa(event.target.checked)}
+    size='sm'
+    className='text-sm'
+  >
+    Idegen nyelvű sor (ma verzió) 
+  </Checkbox>
 )

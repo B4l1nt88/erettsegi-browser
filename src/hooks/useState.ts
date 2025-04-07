@@ -13,6 +13,7 @@ export const useAppState = () => {
   const [selectedYear, setSelectedYear] = useState<string>('')
   const [selectedPeriod, setSelectedPeriod] = useState<string>('')
   const [selectedLevel, setSelectedLevel] = useState<string>('')
+  const [selectedMa, setSelectedMa] = useState<boolean>(false)
   const [years, setYears] = useState<string[]>([])
 
   useYears(setYears)
@@ -40,6 +41,8 @@ export const useAppState = () => {
     setSelectedPeriod,
     selectedLevel,
     setSelectedLevel,
+    selectedMa,
+    setSelectedMa,
     years,
     setYears,
   }

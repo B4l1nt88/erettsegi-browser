@@ -3,11 +3,12 @@ import { subjects } from '@/utils/subjects'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const { vizsgatargy, ev, idoszak, szint } = req.query as {
+    const { vizsgatargy, ev, idoszak, szint ,idegen} = req.query as {
       vizsgatargy: string
       ev: string
       idoszak: string
       szint: string
+      idegen: string
     }
 
     const secure = req.headers['x-forwarded-proto'] === 'https'
@@ -39,6 +40,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (!vizsgatargy || !validSubjects.includes(vizsgatargy)) {
       return res.status(400).json({ error: 'Érvénytelen vizsgatárgy' })
     }
+    if ( idegen=="true" && idoszak !== 'tavasz' && vizsgatargy !== 'angol'  ){
+      // Check if the subject is not in the list of subjects that support idegen
+      return res.status(400).json({ error: 'Idegen ma csak tavaszi időszakban érhető el és nem minden vizsgatárgynál' })
+    }
 
     let honap: string
     switch (idoszak) {
@@ -51,14 +56,18 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       default:
         return res.status(400).json({ error: 'Érvénytelen időszak' })
     }
-
+var vizsgatargy2 = vizsgatargy
+    if (idegen=="true") {
+       vizsgatargy2 = vizsgatargy.concat("ma")
+      
+    }
     let prefix: string
     switch (szint) {
       case 'emelt':
-        prefix = `e_${vizsgatargy}`
+        prefix = `e_${vizsgatargy2}`
         break
       case 'kozep':
-        prefix = `k_${vizsgatargy}`
+        prefix = `k_${vizsgatargy2}`
         break
       default:
         return res.status(400).json({ error: 'Érvénytelen szint' })
@@ -89,13 +98,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       default:
         flPdfUrl = `${proxiedUrl}${prefix}_${shortev}${honap}_${feladat}.pdf`
         utPdfUrl = `${proxiedUrl}${prefix}_${shortev}${honap}_${utmutato}.pdf`
-        idFlPdfUrl = `${proxiedUrl}${prefix}ma_${shortev}${honap}_${feladat}.pdf`
-        idUtPdfUrl = `${proxiedUrl}${prefix}ma_${shortev}${honap}_${utmutato}.pdf`
+        
         break
     }
 
     res.setHeader('Cache-Control', 's-maxage=31536000')
-    res.status(200).json({ flPdfUrl, utPdfUrl, flZipUrl, utZipUrl, flMp3Url, idFlPdfUrl, idUtPdfUrl })
+    res.status(200).json({ flPdfUrl, utPdfUrl, flZipUrl, utZipUrl, flMp3Url})
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error', message: error })
   }

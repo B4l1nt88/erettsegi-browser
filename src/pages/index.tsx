@@ -11,6 +11,7 @@ import {
   YearSelector,
   PeriodSelector,
   LevelSelector,
+  MaSelector,
 } from '@/components/Selectors'
 import { subjects } from '@/utils/subjects'
 
@@ -38,6 +39,8 @@ export default function Home() {
     setSelectedPeriod,
     selectedLevel,
     setSelectedLevel,
+    selectedMa,
+    setSelectedMa,
     years,
     setYears,
   } = useAppState()
@@ -51,16 +54,20 @@ export default function Home() {
         selectedYear,
         selectedPeriod,
         selectedLevel,
+        selectedMa,
         setflZipLink,
         setutZipLink,
         setflPdfLink,
         setutPdfLink,
         setflMp3Link,
-        setidFlPdfLink, // Ensure this is included
-        setidUtPdfLink  // Add this
+        setidFlPdfLink,
+        setidUtPdfLink
+        
+        
+          // Add this
       );
     }
-  }, [selectedLevel, selectedPeriod, selectedSubject, selectedYear])
+  }, [selectedLevel, selectedPeriod, selectedSubject, selectedYear, selectedMa])
 
   return (
     <main className='dark:bg-[#121212] text-foreground bg-background py-5'>
@@ -96,11 +103,14 @@ export default function Home() {
                 setSelectedLevel={setSelectedLevel}
               />
             </div>
-            <div className='flex gap-4 '>
-            <Checkbox defaultSelected size="sm">
-            Idegen nyelvű sor (ma verzió)
-      </Checkbox>
-              
+            <div className='flex gap-4'>
+              <Checkbox
+                isSelected={selectedMa} // Bind to selectedMa state
+                onChange={(event) => setSelectedMa(event.target.checked)} // Update state on toggle
+                size="sm"
+              >
+                Idegen nyelvű sor (ma verzió)
+              </Checkbox>
             </div>
             <div className='space-x-3'>
               <ButtonGroup>
@@ -110,13 +120,7 @@ export default function Home() {
               </ButtonGroup>
             </div>
             
-            <div className='space-x-3'>
-                <ButtonGroup>
-                <PdfButton label='F. idegen' link={idFlPdfLink} />
-                  <Divider orientation='vertical' />
-                  <PdfButton label='Ú. idegen' link={idUtPdfLink} />
-                </ButtonGroup>
-              </div>
+            
             {['inf', 'infoism', 'digkult'].includes(selectedSubject) && (
               <div className='space-x-3'>
                 <ButtonGroup>
