@@ -41,7 +41,7 @@ const CustomButton: React.FC<ButtonProps> = React.memo(({ label, link }) => {
 
   const handleClick = useCallback(() => {
     if (status === 200 && link) {
-      window.open(link)
+      window.location.href = link
     } else {
       console.error('A hivatkozás nem elérhető.')
     }
