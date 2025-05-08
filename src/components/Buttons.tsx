@@ -39,36 +39,21 @@ const CustomButton: React.FC<ButtonProps> = React.memo(({ label, link }) => {
     }
   }, [isLoading, status])
 
- /*  const handleClick = useCallback(() => {
-    if (status === 200 && link) {
-      window.open(link)
-    } else {
-      console.error('A hivatkozás nem elérhető.')
-    }
-  }, [status, link])*/
-
   return (
     <Button
       isDisabled={status !== 200 || !link || isLoading}
       isLoading={isLoading}
       className='w-28 mt-3 text-sm font-bold py-2 px-2'
       color={getColor()}
-      //onPress={handleClick}
     >
-      
       {isLoading && <span className='ml-2'>Betöltés...</span>}
-      {status === 404 && (
-        <span >Nem található</span>
-      )}
-      {status === 500 && (
-        <span >Hiba történt</span>
-      )}
+      {status === 404 && <span>Nem található</span>}
+      {status === 500 && <span>Hiba történt</span>}
       {status !== 404 && status !== 500 && (
-        
-          <a href={link} className="btn">
-            {label}
-          </a> )
-      }
+        <a href={link} className='btn'>
+          {label}
+        </a>
+      )}
     </Button>
   )
 })
